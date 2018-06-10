@@ -4,7 +4,7 @@
 #
 # Applicable to Bacula V7.0+
 #
-# Edited by Ogre
+# Edited by wangry
 #
 ############################
 
