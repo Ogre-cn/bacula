@@ -1,38 +1,37 @@
 # Bacula Restore Test V1.2 #
 
-Bacula自动化恢复测试脚本，适用于bacula版本7.0以上
+Bacula automated recovery test script is applicable to Bacula version 7 or more.
 
-## v1.2版本更新： ##
+## V1.2 version update: ##
 
-- 修改部分内容，使脚本更通用化
-- 修改FOR循环到后台执行
-- 增加自命名通道，定义FOR循环同时并发数量，减少对系统资源的占用，防止因资源不足产生错误
-- Wait+后台子SHELL执行并限制循环并发数量，可应对百个以上JOB恢复测试
+- Modify part of the content to make the script more general
+- Modify the FOR loop to the background execution
+- Increase the self naming channel, define the concurrent number of FOR loops, reduce the occupation of system resources, and prevent errors caused by insufficient resources
+- Wait+ backstage SHELL executes and restricts the number of loop concurrency, which can cope with more than 100 JOB recovery tests
 
-## 功能： ##
+## Function: ##
 
-- 通用性
-- 自定义恢复测试文件数量
-- 自定义循环并发数量
-- 占用系统资源小 可同时恢复百个以上JOB
+- Generality
+- The number of custom recovery test files
+- Custom loop concurrency number
+- Occupying system resources can restore more than 100 JOB at the same time
 
-## 自定义参数： ##
+## Custom parameters: ##
 
-- 恢复备份存储主机：RESTORE_CLIENT
-- 恢复文件数量：FILES_PER_JOB
-- 自命名管道文件：BAKFIFOFILE
-- 循环并发数：CONCURRENT
-- 恢复文件列表和恢复文件存储路径：/backup/vol1/BaculaRestoreTest/
+- Restore the backup storage host：RESTORE_CLIENT
+- Restore the number of files：FILES_PER_JOB
+- Self named pipe file：BAKFIFOFILE
+- Loop concurrent number：CONCURRENT
+- Restore file list and restore file storage path：/backup/vol1/BaculaRestoreTest/
 
-## 注意事项： ##
+## Matters needing attention： ##
 
-bacula配置中client名称和Job名称命名规则
+Client name and Job naming rule in Bacula configuration
 
-- client名称:服务器名 + -fd 例如：bakXXX-fd
-Job名称：Backup+ 服务器名 例如：Backup-bakXXX
-- 注意区分大小写和保持名称一致性
+- Client Name: server name + -fd, for example: bakXXX-fd Job Name: Backup+ server name, for example: Backup-bakXXX
+- Take care to distinguish case from case and keep name consistency
 
-bacula-dir配置中的Job处理规则
+Job processing rules in bacula-dir configuration
 
-- 长期不再做备份计划的client和对应的job 及时在配置中删除
-- 临时或短期暂停备份计划的client和对应的job 及时在配置中注释掉 以防止自动恢复测试脚本读取到
+- Client, which is no longer a backup plan, and the corresponding job are deleted in the configuration in time
+- The client that temporarily or temporarily suspends the backup plan and the corresponding job are promptly annotated in the configuration to prevent automatic recovery test scripts from reading
