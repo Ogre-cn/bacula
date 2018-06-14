@@ -4,12 +4,12 @@
 #
 # Applicable to Bacula V7.0+
 #
-# Edited by wangry
+# Edited by Ogre
 #
 ############################
 
 RESTORE_CLIENT=bacula-fd
-FILES_PER_JOB=10
+FILES_PER_JOB=15
 
 BAKFIFOFILE=/backup/vol1/BaculaRestoreTest/bak.fifo
 CONCURRENT=5
